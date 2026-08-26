@@ -10,13 +10,10 @@ Sem teoria maçante. **Apenas prática!**
 
 ## 📚 Níveis
 
-### Nível 1: Fundamentos + Python + Azure SQL (2h)
-- Estrutura profissional
-- Git + versionamento
-- Conectar a Azure SQL
-- Debug no VS Code
+### Nível 1: Fundamentos de Devops, Cloud e Sustentabilidade (2h)
+### Nível 2: Integração Contínua (CI)
+### Nível 3: Entrega e Deploy (CD)
 
-**→ [Começar aqui](./nivel-1-fundamentos/README.md)**
 
 ## 🚀 Como Começar
 
@@ -34,9 +31,9 @@ Você vai:
 
 Você vai aprender:
 - Estrutura profissional
-- Git (init, add, commit)
-- Azure SQL
-- Debug VS Code
+- Git + versionamento
+- Conectar a Azure SQL
+- Debug no VS Code
 
 ## 💬 Dúvidas?
 
