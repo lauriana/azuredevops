@@ -18,7 +18,7 @@ Sem teoria maçante. **Apenas prática!**
 
 ## 🚀 Como Começar
 
-### 1. Setup Inicial (30 min - em casa)
+### 1. Setup Inicial (30 min)
 [Clique aqui](./setup-inicial/README.md)
 
 Você vai:
@@ -26,6 +26,7 @@ Você vai:
 - Instalar Git, Python, VS Code
 - Clonar repositório
 - Preparar ambiente
+
 
 ### 2. Oficina Nível 1 (2h)
 [Clique aqui](https://github.com/renanolv7/project-devops-minicurso)
