@@ -1,4 +1,4 @@
-# DevOps em 3 Níveis - IFPR Pinhais
+# Programa DevOps Azure IFPR 
 
 Boas Vindas! Aqui está todo o material dos minicursos de DevOps.
 
@@ -6,7 +6,7 @@ Boas Vindas! Aqui está todo o material dos minicursos de DevOps.
 
 Aprender DevOps do zero com **Python + Git + Azure SQL**.
 
-Sem teoria maçante. **Apenas prática!**
+Em 3 níveis. Sem teoria maçante. **Apenas prática!**
 
 ## 📚 Níveis
 
