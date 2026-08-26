@@ -1,6 +1,6 @@
 # DevOps em 3 Níveis - IFPR Pinhais
 
-Boas Vindas! Aqui está todo o material das oficinas de DevOps.
+Boas Vindas! Aqui está todo o material dos minicursos de DevOps.
 
 ## 🎯 Objetivo
 
@@ -18,7 +18,9 @@ Sem teoria maçante. **Apenas prática!**
 
 ## 🚀 Como Começar
 
-### 1. Setup Inicial (30 min)
+### 1. Minicurso Nível 1: Fundamentos de Devops, Cloud e Sustentabilidade (2h)
+
+### 1.1 Setup Inicial (30 min)
 [Clique aqui](./setup-inicial/README.md)
 
 Você vai:
@@ -27,8 +29,7 @@ Você vai:
 - Clonar repositório
 - Preparar ambiente
 
-
-### 2. Oficina Nível 1 (2h)
+### 1.2 Minicurso Nível 1 (1:30 min)
 [Clique aqui](https://github.com/renanolv7/project-devops-minicurso)
 
 Você vai aprender:
@@ -36,6 +37,7 @@ Você vai aprender:
 - Git + versionamento
 - Conectar a Azure SQL
 - Debug no VS Code
+
 
 ## 💬 Dúvidas?
 
