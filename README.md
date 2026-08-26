@@ -28,7 +28,7 @@ Você vai:
 - Preparar ambiente
 
 ### 2. Oficina Nível 1 (2h)
-[Clique aqui](./nivel-1-fundamentos/README.md)
+[Clique aqui](https://github.com/renanolv7/project-devops-minicurso)
 
 Você vai aprender:
 - Estrutura profissional
