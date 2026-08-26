@@ -47,7 +47,7 @@ Você vai aprender:
 ## Contato
 
 - Coordenadora do Projeto: Profa. Lauriana Paludo
-  Email: lauriana.paludo@ifpr.edu.br
+- Email: lauriana.paludo@ifpr.edu.br
 
 - GitHub Issues: [Clique aqui](../../issues)
 
