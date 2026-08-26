@@ -54,10 +54,10 @@ Você vai aprender:
 ### Alunos Participantes
 | Nome | GitHub |
 |------|--------|
-| Renan | [@joaosilva](https://github.com/joaosilva) |
-| Marcelo | [@msantos](https://github.com/msantos) |
-| Michely | [@pedrooliveira](https://github.com/pedrooliveira) |
-| Miguel | [@anacosta](https://github.com/anacosta) |
+| Renan Oliveira | [@renanolv](https://github.com/renanolv7) |
+| Marcelo | [@marcelo](https://github.com/marcelo) |
+| Michely | [@michely](https://github.com/michely) |
+| Miguel | [@miguel](https://github.com/miguel) |
 
 ### Suporte
 - 🐛 GitHub Issues: [Abrir Issue](../../issues)
