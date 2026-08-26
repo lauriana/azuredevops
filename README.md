@@ -42,12 +42,24 @@ Você vai aprender:
 - **Completou desafio?** → [Compartilhe em Discussions](../../discussions)
 - **Encontrou erro?** → [Reporte aqui](../../issues/new?template=bug.md)
 
-## Contato
+## Equipe
 
-- Coordenadora do Projeto: Profa. Lauriana Paludo
-- Email: lauriana.paludo@ifpr.edu.br
+### Coordenação
+- **Profa. Lauriana Paludo** - Coordenadora do Projeto
+  - Email: lauriana.paludo@ifpr.edu.br
 
-- GitHub Issues: [Clique aqui](../../issues)
+### Alunos Participantes
+| Nome | GitHub |
+|------|--------|
+| Renan | [@joaosilva](https://github.com/joaosilva) |
+| Marcelo | [@msantos](https://github.com/msantos) |
+| Michely | [@pedrooliveira](https://github.com/pedrooliveira) |
+| Miguel | [@anacosta](https://github.com/anacosta) |
+
+### Suporte
+- 🐛 GitHub Issues: [Abrir Issue](../../issues)
+- 💬 Discussions: [Ir para Discussions](../../discussions)
+
 
 ---
 
