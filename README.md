@@ -36,6 +36,7 @@ Você vai aprender:
 - Estrutura profissional
 - Git + versionamento
 - Conectar a Azure SQL
+- Conectar ao Azure Devops
 - Debug no VS Code
 
 
