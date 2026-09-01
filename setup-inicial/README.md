@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 5 PASSOS (30 MINUTOS)
+## 📌 5 PASSOS 
 
 ```
 Passo 1: Conta Azure (estudante)     → 5 min
@@ -18,7 +18,7 @@ Passo 5: Testar                      → 5 min
 
 ---
 
-## PASSO 1: Criar Conta Azure (ESTUDANTE) - 5 min
+## PASSO 1: Criar Conta Azure (ESTUDANTE) 
 
 ### 1.1 Acessar Azure para estudantes
 
@@ -33,7 +33,7 @@ seu_login@ifpr.edu.br
 ```
 
 Se não tiver email IFPR:
-- Peça ao coordenador
+- Peça ao coordenador do curso
 - Ou use email pessoal + SMS
 
 ### 1.3 Preencher formulário
@@ -81,7 +81,7 @@ git --version
 # Deve mostrar: git version 2.x.x
 ```
 
-### 2.2 Python 3.9+
+### 2.2 Python 3.10+
 
 **Baixe:** https://www.python.org/downloads/
 
@@ -91,8 +91,8 @@ git --version
 
 **Verificar:**
 ```bash
-python --version
-# Deve mostrar: Python 3.9 ou superior
+python --version 
+# Deve mostrar: Python 3.10 ou superior
 
 pip --version
 # Deve mostrar: pip 21.x ou superior
@@ -271,7 +271,7 @@ project-devops-minicurso/
 
 ✅ Conta Azure criada ($100 crédito)
 ✅ Git instalado
-✅ Python 3.9+ instalado
+✅ Python 3.10+ instalado
 ✅ VS Code instalado
 ✅ Repositório clonado
 ✅ Ambiente virtual criado
