@@ -11,9 +11,10 @@
 ```
 Passo 1: Conta Azure (estudante)     → 5 min
 Passo 2: Instalar ferramentas        → 10 min
-Passo 3: Clonar repositório          → 2 min
+Passo 3: Criar Banco de Dados
+Passo 4: Clonar repositório          → 2 min
 Passo 4: Preparar ambiente           → 5 min
-Passo 5: Testar                      → 5 min
+Passo 4: Testar                      → 5 min
 ```
 
 ---
@@ -124,14 +125,19 @@ Deve aparecer versões de todas!
 
 ---
 
+## PASSO 3: Criar Banco de Dados no Azure Sql (ESTUDANTE) 
+
+escrever
+
+---
 ## PASSO 3: Clonar Repositório - 2 min
 
-### 3.1 Abrir Terminal
+### 4.1 Abrir Terminal
 
 **Windows:** PowerShell ou CMD
 **Mac/Linux:** Terminal
 
-### 3.2 Escolher pasta
+### 4.2 Escolher pasta
 
 ```bash
 # Windows
@@ -141,7 +147,7 @@ cd Documents
 cd ~
 ```
 
-### 3.3 Clonar
+### 4.3 Clonar
 
 ```bash
 git clone https://github.com/renanolv7/project-devops-minicurso.git
@@ -149,7 +155,7 @@ git clone https://github.com/renanolv7/project-devops-minicurso.git
 
 Vai criar pasta: `project-devops-minicurso`
 
-### 3.4 Entrar na pasta
+### 4.4 Entrar na pasta
 
 ```bash
 cd project-devops-minicurso
