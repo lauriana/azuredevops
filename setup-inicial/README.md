@@ -108,10 +108,20 @@ pip --version
 2. Vá em: Extensions (Ctrl+Shift+X)
 3. Procure: "Python"
 4. Clique: Install (Microsoft)
+```
+
+### 2.4 Driver ODBC
+
+**Baixe:** 
+
+xxxxxxxxx
+
+
+
 
 **Pronto!**
 
-### 2.4 Git + Python + VS Code
+### 2.5 Git + Python + VS Code
 
 Verifique tudo funciona:
 
