@@ -1,20 +1,20 @@
 # SETUP INICIAL: Preparar Ambiente - Nível 1
 
-**Tempo:** 30 minutos
+**Tempo:** 40 minutos
 
 **Pré-requisito:** Nenhum! Começamos do zero.
 
 ---
 
-## 📌 5 PASSOS 
+## 📌 6 PASSOS 
 
 ```
-Passo 1: Conta Azure (estudante)     → 5 min
+Passo 1: Conta Azure (estudante)     → 8 min
 Passo 2: Instalar ferramentas        → 10 min
-Passo 3: Criar Banco de Dados
+Passo 3: Criar Banco de Dados        → 10 min
 Passo 4: Clonar repositório          → 2 min
-Passo 4: Preparar ambiente           → 5 min
-Passo 4: Testar                      → 5 min
+Passo 5: Preparar ambiente           → 5 min
+Passo 6: Testar                      → 5 min
 ```
 
 ---
@@ -316,7 +316,8 @@ python3 --version
 # Mac/Linux: source venv/bin/activate
 
 # Depois instalar:
-pip install -r requirements.txt
+pip install -r requirements.txt ou
+python3 -m pip install pyodbc --break-system-packages
 ```
 
 ### "Permission denied" (Mac/Linux)
