@@ -1,25 +1,53 @@
-# SETUP INICIAL: Preparar Ambiente - Nível 1
+# SETUP INICIAL: Preparar Ambiente e Serviços - Nível 1
 
-**Tempo:** 40 minutos
+**Tempo:** ~45 minutos
 
 **Pré-requisito:** Nenhum! Começamos do zero.
 
----
-
-## 📌 6 PASSOS 
-
-```
-Passo 1: Conta Azure (estudante)     → 8 min
-Passo 2: Instalar ferramentas        → 10 min
-Passo 3: Criar Banco de Dados        → 10 min
-Passo 4: Clonar repositório          → 2 min
-Passo 5: Preparar ambiente           → 5 min
-Passo 6: Testar                      → 5 min
-```
+**Sistema operacional:** este guia cobre **Windows, macOS e Linux** em cada passo — siga a coluna do seu SO.
 
 ---
 
-## PASSO 1: Criar Conta Azure (ESTUDANTE) 
+## 📌 O que este guia ensina
+
+Este é um passo a passo **genérico**: conta na nuvem, ferramentas instaladas, escolha e criação de um banco de dados gerenciado, fork + clone de um repositório, ambiente preparado. É o que você precisa fazer antes de estudar **qualquer** projeto Python hospedado no GitHub — não só o do minicurso.
+
+Para deixar tudo concreto, usamos como exemplo o **projeto loja** (`project-devops-minicurso`), usado na **Parte 2** deste minicurso. Depois de terminar aqui, você sabe repetir o mesmo processo para clonar qualquer outro projeto.
+
+### 🗄️ Duas trilhas de banco de dados
+
+O minicurso agora ensina os dois principais bancos relacionais gerenciados do Azure, lado a lado. Escolha **uma trilha** (ou faça as duas, se quiser comparar):
+
+| | 🐬 Trilha MySQL | 🟦 Trilha SQL Server |
+|---|---|---|
+| Serviço Azure | Azure Database for MySQL – Flexible Server | Azure SQL Database (oferta gratuita) |
+| Driver Python | `mysql-connector-python` | `pyodbc` + Driver ODBC 18 |
+| Extensão VS Code | MySQL | SQL Server (mssql) |
+| Sintaxe de tabela | `AUTO_INCREMENT` | `IDENTITY(1,1)` |
+| Custo | Azure for Students (US$ 100 de crédito) | Oferta gratuita própria (100.000 vCore-segundos e 32 GB/mês, sem usar o crédito) |
+
+As duas trilhas chegam ao **mesmo resultado** na Parte 2: cadastrar e visualizar produtos. A única coisa que muda é o serviço de banco e o driver de conexão. Marque desde já qual você vai seguir:
+
+- [ ] Vou seguir a trilha **MySQL**
+- [ ] Vou seguir a trilha **SQL Server**
+
+---
+
+## 📋 Passos
+
+```
+Passo 1: Conta Azure (estudante)              → 8 min
+Passo 2: Instalar Git, Python, VS Code        → 10 min
+Passo 3: Instalar o driver do seu banco       → 5 min
+Passo 4: Criar o banco de dados no Azure      → 10 min
+Passo 5: Fork + clonar o projeto              → 5 min
+Passo 6: Preparar o ambiente Python           → 5 min
+Passo 7: Testar                               → 5 min
+```
+
+---
+
+## PASSO 1: Criar Conta Azure (estudante)
 
 ### 1.1 Acessar Azure para estudantes
 
@@ -28,14 +56,13 @@ Passo 6: Testar                      → 5 min
 
 ### 1.2 Usar email do IFPR
 
-Use seu email institucional:
 ```
 seu_login@ifpr.edu.br
 ```
 
 Se não tiver email IFPR:
 - Peça ao coordenador do curso
-- Ou use email pessoal + SMS
+- Ou use email pessoal + validação por SMS
 
 ### 1.3 Preencher formulário
 
@@ -47,36 +74,23 @@ Se não tiver email IFPR:
 
 ### 1.4 Validação
 
-- Microsoft enviará SMS
-- Digite código
-- Pronto!
+- Microsoft envia SMS → digite o código → pronto!
 
 **Você recebe:**
-- ✅ $100 de crédito Azure (12 meses)
-- ✅ Acesso gratuito
+- ✅ US$ 100 de crédito Azure (12 meses) — vale para a trilha MySQL
+- ✅ Acesso à oferta gratuita do Azure SQL Database — não consome esse crédito, é um benefício à parte
 
 ---
 
-## PASSO 2: Instalar Ferramentas - 10 min
+## PASSO 2: Instalar Git, Python e VS Code
 
 ### 2.1 Git
 
-**Windows:**
-- Baixe: https://git-scm.com/download/win
-- Clique: Next, Next, Next
-- Pronto!
+| Windows | macOS | Linux |
+|---|---|---|
+| Baixe [git-scm.com/download/win](https://git-scm.com/download/win) e clique Next, Next, Next | `brew install git` (instale o [Homebrew](https://brew.sh) antes, se não tiver) | `sudo apt install git` (Ubuntu/Debian) ou `sudo dnf install git` (Fedora) |
 
-**Mac:**
-```bash
-brew install git
-```
-
-**Linux:**
-```bash
-sudo apt install git
-```
-
-**Verificar:**
+**Verificar (todos os SOs):**
 ```bash
 git --version
 # Deve mostrar: git version 2.x.x
@@ -84,50 +98,36 @@ git --version
 
 ### 2.2 Python 3.10+
 
-**Baixe:** https://www.python.org/downloads/
-
-**⚠️ IMPORTANTE na instalação:**
-- [ ] Marcar: "Add Python to PATH"
-- [ ] Marcar: "Install pip"
+| Windows | macOS | Linux |
+|---|---|---|
+| Baixe em [python.org/downloads](https://www.python.org/downloads/). **Marque "Add Python to PATH"** e "Install pip" no instalador | `brew install python@3.12` — ou baixe em python.org | Geralmente já vem instalado. Se não: `sudo apt install python3 python3-pip python3-venv` |
 
 **Verificar:**
 ```bash
-python --version 
+python --version          # Windows
+python3 --version         # macOS/Linux
 # Deve mostrar: Python 3.10 ou superior
 
-pip --version
-# Deve mostrar: pip 21.x ou superior
+pip --version              # Windows
+pip3 --version             # macOS/Linux
 ```
+
+> 💡 Nos comandos deste guia, sempre que aparecer `python`/`pip`, use `python3`/`pip3` se estiver no macOS ou Linux e `python`/`pip` não funcionar.
 
 ### 2.3 VS Code
 
-**Baixe:** https://code.visualstudio.com/
+Baixe em [code.visualstudio.com](https://code.visualstudio.com/) (mesmo instalador para os três SOs).
 
-**Instalar extensão Python:**
+**Instalar a extensão Python:**
 1. Abra VS Code
-2. Vá em: Extensions (Ctrl+Shift+X)
-3. Procure: "Python"
-4. Clique: Install (Microsoft)
-```
+2. Extensions (`Ctrl+Shift+X` no Windows/Linux, `Cmd+Shift+X` no Mac)
+3. Procure **"Python"** (Microsoft) → Install
 
-### 2.4 Driver ODBC
-
-**Baixe:** 
-
-xxxxxxxxx
-
-
-
-
-**Pronto!**
-
-### 2.5 Git + Python + VS Code
-
-Verifique tudo funciona:
+### 2.4 Conferir tudo de uma vez
 
 ```bash
 git --version
-python --version
+python --version   # ou python3 --version
 code --version
 ```
 
@@ -135,278 +135,277 @@ Deve aparecer versões de todas!
 
 ---
 
-## PASSO 3: Criar Banco de Dados no Azure Sql (ESTUDANTE) 
+## PASSO 3: Instalar o Driver do Seu Banco
 
-escrever
+Siga **apenas a subseção da trilha que você escolheu.**
+
+### 3A. Trilha MySQL — nada para instalar agora
+
+O driver do MySQL é uma biblioteca Python (`mysql-connector-python`) que você instala junto com o projeto no Passo 6 — não precisa de nenhum instalador do sistema operacional.
+
+Instale só a extensão do VS Code:
+1. Extensions → procure **"MySQL"** (da Oracle ou da Weijan Chen) → Install
+
+### 3B. Trilha SQL Server — instalar o Driver ODBC 18
+
+O `pyodbc` (biblioteca Python que fala com o SQL Server) depende de um driver instalado no sistema operacional: o **Microsoft ODBC Driver 18 for SQL Server**.
+
+**Windows:**
+1. Baixe o instalador (x64) em: https://learn.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server
+2. Rode o `.msi` → Next, Next, Finish
+
+**macOS (Homebrew):**
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"   # se ainda não tiver o Homebrew
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools18
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+curl -sSL -O https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18 unixodbc-dev
+```
+
+**Verificar a instalação (todos os SOs):**
+```bash
+python -m pip install pyodbc --break-system-packages   # Linux; no Windows/Mac, só "pip install pyodbc"
+python -c "import pyodbc; print(pyodbc.drivers())"
+# Deve listar 'ODBC Driver 18 for SQL Server' na lista
+```
+
+Instale também a extensão do VS Code:
+1. Extensions → procure **"SQL Server (mssql)"** (Microsoft) → Install
 
 ---
-## PASSO 3: Clonar Repositório - 2 min
 
-### 4.1 Abrir Terminal
+## PASSO 4: Criar o Banco de Dados no Azure
 
-**Windows:** PowerShell ou CMD
-**Mac/Linux:** Terminal
+Siga **apenas a subseção da trilha que você escolheu.** Os dois caminhos levam ao mesmo lugar: um servidor de banco na nuvem, pronto para receber a tabela `produtos` na Parte 2.
 
-### 4.2 Escolher pasta
+### 4A. Trilha MySQL — Azure Database for MySQL Flexible Server
+
+1. No [portal Azure](https://portal.azure.com), busque **"Azure Database for MySQL flexible servers"** → **Create**
+2. **Basics:** escolha sua assinatura (Azure for Students), crie um Resource Group novo, dê um nome ao servidor, escolha a região mais próxima
+3. **Compute + storage:** deixe o tier "Burstable" (o mais barato) selecionado
+4. **Authentication:** defina um usuário administrador e uma senha — **anote os dois**, vai precisar deles no `.env`
+5. **Networking:** marque **"Allow public access from any Azure service"** e clique em **"Add current client IP address"**
+6. **Review + create** → **Create** (leva de 5 a 15 minutos para provisionar)
+
+**Critério de aceite:** o servidor aparece com status **"Available"** no portal.
+
+### 4B. Trilha SQL Server — Azure SQL Database (oferta gratuita)
+
+1. Abra https://aka.ms/azuresqlhub e clique em **"Start free"**
+2. Confirme que aparece o aviso **"Free offer applied!"** e que o card de custo mostra **US$ 0/mês**
+3. **Basics:** escolha sua assinatura, crie um Resource Group novo, dê um nome ao banco de dados (ex.: `loja`)
+4. **Server:** clique em **"Create new"** — dê um nome de servidor único globalmente, escolha a região, e em **Authentication method** selecione **"Use SQL authentication"** — defina um login administrador e uma senha (**anote os dois**)
+5. **Networking:** marque **"Allow Azure services and resources to access this server"** e **"Add current client IPv4 address"**
+6. **Review + create** → **Create** (geralmente pronto em 1-2 minutos — bem mais rápido que o MySQL)
+
+**Critério de aceite:** o banco aparece com status **"Online"**, e a tela de criação mostrou "Estimated cost: $0/month" antes de você confirmar.
+
+> 💡 A oferta gratuita do Azure SQL Database renova todo mês e é por assinatura (não por aluno) — se toda a turma usar a mesma assinatura, combine com o instrutor para não passar de 10 bancos gratuitos nela.
+
+---
+
+## PASSO 5: Fork + Clonar o Projeto
+
+Este é o passo que você repete **toda vez que quiser estudar um projeto de outra pessoa no GitHub**: primeiro um **fork** (sua cópia, na sua conta), depois **clone** do seu fork.
+
+### 5.1 Fazer um fork do projeto loja
+
+1. Abra: https://github.com/renanolv7/project-devops-minicurso
+2. Clique em **Fork** (canto superior direito) → Confirme
+3. Isso cria `github.com/SEU-USUARIO/project-devops-minicurso`
+
+> 💡 Ao clonar outro projeto no futuro, é sempre este mesmo primeiro passo.
+
+### 5.2 Clonar o seu fork
 
 ```bash
-# Windows
-cd Documents
+cd Documents        # Windows
+cd ~                 # macOS/Linux
 
-# Mac/Linux
-cd ~
-```
-
-### 4.3 Clonar
-
-```bash
-git clone https://github.com/renanolv7/project-devops-minicurso.git
-```
-
-Vai criar pasta: `project-devops-minicurso`
-
-### 4.4 Entrar na pasta
-
-```bash
+git clone https://github.com/SEU-USUARIO/project-devops-minicurso.git
 cd project-devops-minicurso
 ```
 
-### 3.5 Ver o que foi baixado
+(Troque `SEU-USUARIO` pelo seu usuário — é o **seu fork**, não o repositório original.)
+
+### 5.3 Ver o que foi baixado
 
 ```bash
-# Windows
-dir
-
-# Mac/Linux
-ls -la
+dir        # Windows
+ls -la     # macOS/Linux
 ```
 
-Deve mostrar:
+O projeto é enxuto:
 ```
-├── src/
-├── tests/
+project-devops-minicurso/
+├── .env.example      (modelo das variáveis de conexão)
 ├── .gitignore
 ├── README.md
-├── requirements.txt
-└── ...
+├── config.py          (conecta ao banco de dados)
+└── main.py            (programa principal — CRUD de produtos)
 ```
+
+Não tem `src/` nem `tests/` — propositalmente simples para o minicurso.
+
+> Se você for seguir a trilha **SQL Server**, vai substituir `config.py` e `main.py` pela versão adaptada da Parte 2 (pasta `codigo-sqlserver/`) — o projeto original só fala com MySQL.
 
 ---
 
-## PASSO 4: Preparar Ambiente - 5 min
+## PASSO 6: Preparar o Ambiente Python
 
-### 4.1 Criar Virtual Environment
+### 6.1 (Opcional, recomendado) Virtual environment
 
 ```bash
 # Windows
 python -m venv venv
 venv\Scripts\activate
 
-# Mac/Linux
+# macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-**Após ativar, terminal deve mostrar:**
-```
-(venv) seu-usuario:project-devops-minicurso
-```
+O terminal deve mostrar `(venv)` no início da linha depois de ativar.
 
-### 4.2 Instalar dependências
+### 6.2 Instalar as dependências da sua trilha
 
+**Trilha MySQL:**
 ```bash
-pip install -r requirements.txt
+python -m pip install mysql-connector-python python-dotenv
 ```
 
-**Vai instalar:**
-- pyodbc (conexão SQL)
-- pytest (testes)
-- python-dotenv
+**Trilha SQL Server:**
+```bash
+python -m pip install pyodbc python-dotenv
+```
 
-**Pode levar 2-3 minutos...**
-
-### 4.3 Pronto!
-
-Seu ambiente está preparado.
+**Pode levar 1-2 minutos...**
 
 ---
 
-## PASSO 5: Testar - 5 min
+## PASSO 7: Testar
 
-### 5.1 Ver README do projeto
+### 7.1 Ver o README do projeto
 
 ```bash
-# Windows
-type README.md
-
-# Mac/Linux
-cat README.md
+type README.md    # Windows
+cat README.md      # macOS/Linux
 ```
 
-### 5.2 Listar arquivos importantes
+### 7.2 Abrir no VS Code
 
 ```bash
-# Ver estrutura
-cd src
-ls -la
-
-# Deve ter:
-# - main.py
-# - database.py
-```
-
-### 5.3 Abrir no VS Code
-
-```bash
-# Voltar para raiz
-cd ..
-
-# Abrir VS Code
 code .
 ```
 
-**Pronto!** VS Code abre com o projeto!
+### 7.3 Entender a estrutura
 
-### 5.4 Entender a estrutura
-
-No VS Code, veja:
 ```
 project-devops-minicurso/
-├── src/
-│   ├── main.py (programa principal)
-│   └── database.py (conexão com SQL)
-├── tests/ (testes)
-├── requirements.txt (dependências)
-├── .gitignore (o que Git ignora)
-└── README.md (documentação)
+├── main.py            → menu do programa (cadastrar/visualizar produtos)
+├── config.py          → conecta ao banco, lendo variáveis do .env
+├── .env.example       → modelo a copiar para .env na Parte 2
+└── README.md
 ```
+
+Ainda **não** crie o `.env` nem rode `python main.py` — isso é feito na Parte 2, depois de o banco de dados estar pronto. Rodar agora dá erro de conexão (esperado, o `.env` ainda não existe).
 
 ---
 
 ## O QUE VOCÊ TEM AGORA
 
-✅ Conta Azure criada ($100 crédito)
-✅ Git instalado
-✅ Python 3.10+ instalado
-✅ VS Code instalado
-✅ Repositório clonado
-✅ Ambiente virtual criado
-✅ Dependências instaladas
-✅ Projeto aberto no VS Code
-✅ **100% PRONTO PARA NÍVEL 1! 🚀**
+- ✅ Conta Azure criada
+- ✅ Git, Python 3.10+ e VS Code instalados
+- ✅ Driver e extensão do banco da sua trilha instalados
+- ✅ Banco de dados criado no Azure (MySQL Flexible Server **ou** Azure SQL Database gratuito)
+- ✅ Fork do projeto loja clonado
+- ✅ Ambiente Python preparado
+- ✅ **100% pronto para a Parte 2! 🚀**
 
 ---
 
 ## ⚠️ SE ALGO DER ERRADO
 
 ### "Git não encontrado"
-```bash
-# Reinstale Git
-# Windows: https://git-scm.com/download/win
-# Mac: brew install git
-# Linux: sudo apt install git
-```
+Reinstale: Windows → [git-scm.com](https://git-scm.com/download/win) · macOS → `brew install git` · Linux → `sudo apt install git`
 
 ### "Python não encontrado"
 ```bash
-# Verificar PATH
-python --version
-
-# Se não funcionar:
+python --version   # se falhar, tente:
 python3 --version
-
-# Se persistir, reinstale de https://python.org
-# Marque "Add to PATH" na instalação!
 ```
+Se persistir, reinstale marcando "Add to PATH" (Windows).
 
-### "ModuleNotFoundError"
+### "ModuleNotFoundError: No module named 'mysql'" (trilha MySQL)
 ```bash
-# Ativar virtual environment!
-# Windows: venv\Scripts\activate
-# Mac/Linux: source venv/bin/activate
-
-# Depois instalar:
-pip install -r requirements.txt ou
-python3 -m pip install pyodbc --break-system-packages
+python -m pip install mysql-connector-python python-dotenv
 ```
 
-### "Permission denied" (Mac/Linux)
+### "ModuleNotFoundError: No module named 'pyodbc'" ou "Can't open lib 'ODBC Driver 18...'" (trilha SQL Server)
+O driver ODBC do sistema operacional está faltando, não é só o pacote Python. Refaça o Passo 3B para o seu SO e confirme com:
 ```bash
-chmod +x venv/bin/activate
-source venv/bin/activate
+python -c "import pyodbc; print(pyodbc.drivers())"
 ```
 
-### "Não consigo clonar"
-```bash
-# Verificar conexão
-ping github.com
+### "Login failed" / "Cannot open server ... requested by the login"
+- Trilha MySQL ou SQL Server: confira se seu IP atual está liberado no firewall do servidor (Passo 4) — seu IP pode ter mudado se você trocou de rede
+- Confira usuário e senha no `.env` (veja a Parte 2)
 
-# Se tiver problema de rede:
-# 1. Verificar WiFi
-# 2. Desabilitar VPN (se tiver)
-# 3. Tentar novamente
-```
+### "Não consigo clonar" / "repository not found"
+Confira se clonou a URL do **seu fork** (com o seu usuário), não do repositório original.
 
 ---
 
 ## 📞 DÚVIDAS?
 
-### Abrir Issue no GitHub
-
-1. Vá em: github.com/seu-repo/issues
-2. Clique: "New issue"
-3. Escolha: "Dúvida"
-4. Descreva o problema
-5. Clique: "Submit"
-
-**Você terá resposta em < 24h!**
+- **Tem dúvida?** → [Abra uma Issue](../../issues/new?template=duvida.md)
+- **Encontrou erro?** → [Reporte aqui](../../issues/new?template=bug.md)
 
 ### Exemplo de Issue boa
 
 ```
-Título: "Erro ao instalar pyodbc"
+Título: "Erro ao instalar pyodbc no macOS"
 
 Descrição:
-Ao rodar pip install -r requirements.txt, recebo:
-error: [XYZ]
+Ao rodar python -c "import pyodbc", recebo:
+Can't open lib 'ODBC Driver 18 for SQL Server' : file not found
 
 Meu ambiente:
-- OS: Windows 10
-- Python: 3.9
-- pip: 21.0
+- OS: macOS 14 (Apple Silicon)
+- Python: 3.12
+- Segui o Passo 3B com brew install msodbcsql18
 
 Já tentei:
-- Reinstalar Python
-- Rodar como admin
+- brew update && brew reinstall msodbcsql18
 ```
 
 ---
 
 ## 🚀 PRÓXIMO PASSO
 
-1. Participe da **NÍVEL 1** (oficina 2h)
-2. Você rodará código de verdade
-3. Vai debugar no VS Code
-4. Vai conectar a Azure SQL
+Você está pronto para a **[Parte 2: Atividades Práticas](../nivel-1-atividades/README.md)** — lá você cria o Board no Azure DevOps, coloca o banco de dados de verdade no ar e cadastra seu primeiro produto.
 
 ---
 
 ## ✨ CHECKLIST FINAL
 
-Antes de participar da oficina, confirme:
-
 - [ ] Conta Azure criada
-- [ ] Git instalado
-- [ ] Python 3.9+ instalado
-- [ ] VS Code instalado + extensão Python
-- [ ] Repositório clonado
-- [ ] Virtual environment criado
-- [ ] Dependências instaladas
-- [ ] VS Code abre o projeto
-- [ ] Você consegue ver pasta `src/`
+- [ ] Git, Python 3.10+ e VS Code instalados
+- [ ] Driver/extensão do banco da sua trilha instalados (MySQL ou ODBC 18 + mssql)
+- [ ] Banco de dados criado no Azure e com status Available/Online
+- [ ] Fork do projeto loja clonado (do seu usuário, não do original)
+- [ ] Dependências Python da sua trilha instaladas
+- [ ] VS Code abre o projeto e mostra `main.py` e `config.py`
 
-**Sim para tudo?** 🎉
-**Você está 100% pronto! Até na oficina!**
+**Sim para tudo?** 🎉 **Vamos para a Parte 2!**
 
 ---
 
