@@ -1,7 +1,17 @@
+import sys
+
 from config import connect_bd
 
 # Conecta ao banco de dados uma única vez, quando o programa inicia
 conexao = connect_bd()
+
+if conexao is None:
+    # connect_bd() já imprimiu o motivo do erro (driver, rede, credenciais).
+    # Sem isso aqui, o programa travaria mais na frente com um
+    # "AttributeError: 'NoneType' object has no attribute 'cursor'" bem
+    # mais confuso do que a mensagem que connect_bd() já mostrou.
+    print("Não foi possível conectar ao banco de dados. Revise o .env, o driver ODBC 18 e a rede (porta 1433 liberada) antes de tentar de novo.")
+    sys.exit(1)
 
 
 def cadastrar_produto():
