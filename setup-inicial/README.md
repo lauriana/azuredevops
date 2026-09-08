@@ -157,10 +157,18 @@ O `pyodbc` (biblioteca Python que fala com o SQL Server) depende de um driver in
 **macOS (Homebrew):**
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"   # se ainda não tiver o Homebrew
-brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew tap microsoft/mssql-release https://github.com/microsoft/homebrew-mssql-release
 brew update
 HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools18
 ```
+
+> ⚠️ Reparou que é `microsoft` com letra minúscula na URL do `brew tap`? É de propósito — com maiúscula (como a própria documentação da Microsoft às vezes mostra) o Homebrew recusa com "Tap ... remote mismatch".
+>
+> Em versões mais novas do Homebrew, o comando de instalação pode recusar com **"Refusing to load formula ... from untrusted tap"**. Se isso acontecer, rode antes:
+> ```bash
+> brew trust microsoft/mssql-release
+> ```
+> e repita o `brew install`.
 
 **Linux (Ubuntu/Debian):**
 ```bash
@@ -356,6 +364,11 @@ O driver ODBC do sistema operacional está faltando, não é só o pacote Python
 ```bash
 python -c "import pyodbc; print(pyodbc.drivers())"
 ```
+
+### "Tap ... remote mismatch" ou "Refusing to load formula ... from untrusted tap" (macOS, Passo 3B)
+Isso é do Homebrew, não do driver em si:
+- **remote mismatch:** você digitou (ou copiou de algum lugar) a URL do tap com `Microsoft` maiúsculo — o certo é `microsoft` minúsculo, como está no Passo 3B
+- **untrusted tap:** rode `brew trust microsoft/mssql-release` e repita o `brew install`
 
 ### "Login failed" / "Cannot open server ... requested by the login"
 - Trilha MySQL ou SQL Server: confira se seu IP atual está liberado no firewall do servidor (Passo 4) — seu IP pode ter mudado se você trocou de rede
