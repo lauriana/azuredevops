@@ -359,6 +359,12 @@ python -c "import pyodbc; print(pyodbc.drivers())"
 - Trilha MySQL ou SQL Server: confira se seu IP atual está liberado no firewall do servidor (Passo 4) — seu IP pode ter mudado se você trocou de rede
 - Confira usuário e senha no `.env` (veja a Parte 2)
 
+### A conexão trava/demora e nunca dá erro nem sucesso (trilha SQL Server)
+Isso costuma ser a **porta 1433 bloqueada pela rede** que você está usando (comum em redes de campus e corporativas) — diferente do firewall do Passo 4, que é do lado do Azure, esse bloqueio é do lado de fora, na rede local. O Azure SQL Database não tem um jeito de contornar isso usando outra porta.
+- Teste em outra rede (dados móveis/hotspot do celular, por exemplo) para confirmar se é isso
+- Se for uma rede da instituição, peça ao suporte de TI para liberar saída na porta **1433** para `*.database.windows.net`
+- Mais detalhes: [guia de troubleshooting de conectividade do Azure SQL](https://azure.microsoft.com/en-us/blog/sql-azure-connectivity-troubleshooting-guide/)
+
 ### "Não consigo clonar" / "repository not found"
 Confira se clonou a URL do **seu fork** (com o seu usuário), não do repositório original.
 
