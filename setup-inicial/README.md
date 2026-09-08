@@ -246,16 +246,17 @@ ls -la     # macOS/Linux
 O projeto é enxuto:
 ```
 project-devops-minicurso/
-├── .env.example      (modelo das variáveis de conexão)
+├── src/
+│   ├── database.py    (conecta ao banco de dados)
+│   └── main.py        (programa principal — CRUD de produtos)
+├── .env.example       (modelo das variáveis de conexão)
 ├── .gitignore
-├── README.md
-├── config.py          (conecta ao banco de dados)
-└── main.py            (programa principal — CRUD de produtos)
+└── README.md
 ```
 
-Não tem `src/` nem `tests/` — propositalmente simples para o minicurso.
+> ⚠️ O código fica dentro da pasta `src/`, não na raiz. Isso importa na hora de rodar o programa (Passo 7 e Parte 2): o comando certo é `python -m src.main`, executado de dentro de `project-devops-minicurso/` — não `python main.py`.
 
-> Se você for seguir a trilha **SQL Server**, vai substituir `config.py` e `main.py` pela versão adaptada da Parte 2 (pasta `codigo-sqlserver/`) — o projeto original só fala com MySQL.
+> Se você for seguir a trilha **SQL Server**, vai substituir `src/database.py` e `src/main.py` pela versão adaptada da Parte 2 (pasta `codigo-sqlserver/`) — o projeto original só fala com MySQL.
 
 ---
 
@@ -310,13 +311,14 @@ code .
 
 ```
 project-devops-minicurso/
-├── main.py            → menu do programa (cadastrar/visualizar produtos)
-├── config.py          → conecta ao banco, lendo variáveis do .env
+├── src/
+│   ├── main.py        → menu do programa (cadastrar/visualizar produtos)
+│   └── database.py    → conecta ao banco, lendo variáveis do .env
 ├── .env.example       → modelo a copiar para .env na Parte 2
 └── README.md
 ```
 
-Ainda **não** crie o `.env` nem rode `python main.py` — isso é feito na Parte 2, depois de o banco de dados estar pronto. Rodar agora dá erro de conexão (esperado, o `.env` ainda não existe).
+Ainda **não** crie o `.env` nem rode o programa — isso é feito na Parte 2, depois de o banco de dados estar pronto. Quando for a hora, o comando é `python -m src.main` (executado da raiz do projeto — `python main.py` ou `python src/main.py` direto **não funcionam**, dão erro de import). Rodar agora, mesmo do jeito certo, dá erro de conexão (esperado, o `.env` ainda não existe).
 
 ---
 
@@ -409,7 +411,7 @@ Você está pronto para a **[Parte 2: Atividades Práticas](../nivel-1-atividade
 - [ ] Banco de dados criado no Azure e com status Available/Online
 - [ ] Fork do projeto loja clonado (do seu usuário, não do original)
 - [ ] Dependências Python da sua trilha instaladas
-- [ ] VS Code abre o projeto e mostra `main.py` e `config.py`
+- [ ] VS Code abre o projeto e mostra `src/main.py` e `src/database.py`
 
 **Sim para tudo?** 🎉 **Vamos para a Parte 2!**
 

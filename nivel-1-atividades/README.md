@@ -61,9 +61,9 @@ Corresponde à **Issue 1**.
 - [ ] Crie uma branch a partir de `main`: `feature/1-preparar-ambiente`
 - [ ] Clone o repositório **do Azure Repos** (não mais do GitHub) para uma pasta local
 
-**🟦 Se você está na trilha SQL Server:** agora é a hora de copiar `config.py` e `main.py` da pasta [`codigo-sqlserver/`](./codigo-sqlserver/) para a raiz do projeto clonado, substituindo os originais (feitos para MySQL). Veja o [README daquela pasta](./codigo-sqlserver/README.md) para o passo a passo.
+**🟦 Se você está na trilha SQL Server:** agora é a hora de copiar `database.py` e `main.py` da pasta [`codigo-sqlserver/`](./codigo-sqlserver/) para dentro da pasta **`src/`** do projeto clonado, substituindo os originais (feitos para MySQL). Veja o [README daquela pasta](./codigo-sqlserver/README.md) para o passo a passo.
 
-**Critério de aceite:** o repositório aparece em Repos → Files; você tem uma cópia local clonada do Azure Repos com `main.py` e `config.py` da sua trilha.
+**Critério de aceite:** o repositório aparece em Repos → Files; você tem uma cópia local clonada do Azure Repos com `src/main.py` e `src/database.py` da sua trilha.
 
 ---
 
@@ -74,7 +74,7 @@ Corresponde à **Issue 2**.
 - [ ] Copie `.env.example` para `.env`
 - [ ] Preencha as 4 variáveis com os dados do banco **que você criou no Setup Inicial**
 
-**🐬 Trilha MySQL** — variáveis lidas por `config.py`:
+**🐬 Trilha MySQL** — variáveis lidas por `src/database.py`:
 ```
 DB_HOST=seu-servidor.mysql.database.azure.com
 DB_USER=seu_usuario_admin
@@ -90,7 +90,7 @@ DB_PASSWORD=sua_senha
 DB_NAME=loja
 ```
 
-> ⚠️ Os nomes das variáveis são **sempre estes 4**: `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` — não use `DB_PORT` nem `DB_DATABASE`, nenhum dos dois `config.py` (MySQL ou SQL Server) lê esses nomes.
+> ⚠️ Os nomes das variáveis são **sempre estes 4**: `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` — não use `DB_PORT` nem `DB_DATABASE`, nenhum dos dois `database.py` (MySQL ou SQL Server) lê esses nomes.
 
 - [ ] Confirme que `.env` **não** aparece em `git status` (deve estar no `.gitignore`)
 - [ ] Commit da branch vinculado ao work item:
@@ -144,9 +144,13 @@ Esta é a atividade principal: colocar o CRUD para funcionar de ponta a ponta. C
 
 ### 5.1 Rodar a aplicação
 
+A partir da **raiz** do projeto (não de dentro de `src/`):
+
 ```bash
-python main.py
+python -m src.main
 ```
+
+> ⚠️ O código do projeto loja fica dentro de uma pasta `src/` (`src/main.py`, `src/database.py`), então `python main.py` ou `python src/main.py` **não funcionam** — dão erro de import. `python -m src.main` é o comando certo nas duas trilhas.
 
 Deve aparecer o menu:
 ```
