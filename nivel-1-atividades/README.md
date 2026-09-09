@@ -109,6 +109,8 @@ git commit -m "Configura variaveis do banco (AB#2)"
 
 Corresponde à **Issue 3**. Abra o VS Code, conecte-se ao seu banco com a extensão da sua trilha (MySQL ou mssql), e rode o SQL correspondente.
 
+> 💡 Primeira vez conectando a um banco pelo VS Code, ou primeira vez escrevendo um comando SQL? Veja **[Comandos Básicos](../comandos-basicos.md)** antes de continuar — explica `CREATE TABLE`, `SELECT`, e como rodar uma consulta na extensão.
+
 **🐬 Trilha MySQL:**
 ```sql
 CREATE DATABASE loja;

@@ -123,6 +123,8 @@ Baixe em [code.visualstudio.com](https://code.visualstudio.com/) (mesmo instalad
 2. Extensions (`Ctrl+Shift+X` no Windows/Linux, `Cmd+Shift+X` no Mac)
 3. Procure **"Python"** (Microsoft) → Install
 
+> 💡 Primeira vez usando o VS Code? Veja **[Comandos Básicos](../comandos-basicos.md)** — abrir pasta, paleta de comandos, terminal integrado, instalar extensão, tudo explicado com calma.
+
 ### 2.4 Conferir tudo de uma vez
 
 ```bash
@@ -230,6 +232,8 @@ Este é o passo que você repete **toda vez que quiser estudar um projeto de out
 3. Isso cria `github.com/SEU-USUARIO/project-devops-minicurso`
 
 > 💡 Ao clonar outro projeto no futuro, é sempre este mesmo primeiro passo.
+
+> 🆕 Primeira vez ouvindo falar em "fork", `git clone`, ou não sabe o que são esses comandos de terminal? Veja **[Comandos Básicos](../comandos-basicos.md)** antes de continuar.
 
 ### 5.2 Clonar o seu fork
 
