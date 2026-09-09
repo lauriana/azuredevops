@@ -216,7 +216,6 @@ Siga **apenas a subseção da trilha que você escolheu.** Os dois caminhos leva
 
 **Critério de aceite:** o banco aparece com status **"Online"**, e a tela de criação mostrou "Estimated cost: $0/month" antes de você confirmar.
 
-> 💡 A oferta gratuita do Azure SQL Database renova todo mês e é por assinatura (não por aluno) — se toda a turma usar a mesma assinatura, combine com o instrutor para não passar de 10 bancos gratuitos nela.
 
 ---
 
