@@ -47,6 +47,11 @@ Você vai aprender, com tarefas específicas no **projeto loja**:
 
 O código do projeto loja tem como base [renanolv7/project-devops-minicurso](https://github.com/renanolv7/project-devops-minicurso) (trilha MySQL original); a variante para a trilha SQL Server está em [`nivel-1-atividades/codigo-sqlserver/`](./nivel-1-atividades/codigo-sqlserver/).
 
+### Referência — Comandos Básicos (VS Code, SQL, Git e GitHub)
+[Clique aqui](./comandos-basicos.md)
+
+Nunca usou o VS Code, escreveu um comando SQL, ou mexeu com Git/GitHub? Este guia de consulta rápida explica paleta de comandos, terminal integrado, instalar extensão, os comandos `CREATE TABLE`/`SELECT`/`INSERT INTO`, `git clone`/`add`/`commit`/`push`, e o que é um Fork e um Pull Request — linkado também de dentro do Setup Inicial e da Parte 2, no momento em que cada coisa aparece pela primeira vez.
+
 ### Complemento — Azure DevOps na Prática (~1h, opcional)
 [Clique aqui](./nivel-1-atividades/azure-devops-na-pratica.md)
 
