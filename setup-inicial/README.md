@@ -52,7 +52,7 @@ Passo 7: Testar                               → 5 min
 ### 1.1 Acessar Azure para estudantes
 
 1. Abra: https://azure.microsoft.com/pt-br/resources/students/
-3. Clique em **"Começar gratuitamente"**
+3. Clique em **"Entrar"**
 
 ### 1.2 Usar email do IFPR
 
