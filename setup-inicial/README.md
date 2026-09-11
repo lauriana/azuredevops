@@ -10,26 +10,11 @@
 
 ## 📌 O que este guia ensina
 
-Este é um passo a passo **genérico**: conta na nuvem, ferramentas instaladas, escolha e criação de um banco de dados gerenciado, fork + clone de um repositório, ambiente preparado. É o que você precisa fazer antes de estudar **qualquer** projeto Python hospedado no GitHub — não só o do minicurso.
+Este é um passo a passo **genérico**: conta na nuvem, ferramentas instaladas, criação de um banco de dados gerenciado, fork + clone de um repositório, ambiente preparado. É o que você precisa fazer antes de estudar **qualquer** projeto Python hospedado no GitHub — não só o do minicurso.
 
 Para deixar tudo concreto, usamos como exemplo o **projeto loja** (`project-devops-minicurso`), usado na **Parte 2** deste minicurso. Depois de terminar aqui, você sabe repetir o mesmo processo para clonar qualquer outro projeto.
 
-### 🗄️ Duas trilhas de banco de dados
-
-O minicurso agora ensina os dois principais bancos relacionais gerenciados do Azure, lado a lado. Escolha **uma trilha** (ou faça as duas, se quiser comparar):
-
-| | 🐬 Trilha MySQL | 🟦 Trilha SQL Server |
-|---|---|---|
-| Serviço Azure | Azure Database for MySQL – Flexible Server | Azure SQL Database (oferta gratuita) |
-| Driver Python | `mysql-connector-python` | `pyodbc` + Driver ODBC 18 |
-| Extensão VS Code | MySQL | SQL Server (mssql) |
-| Sintaxe de tabela | `AUTO_INCREMENT` | `IDENTITY(1,1)` |
-| Custo | Azure for Students (US$ 100 de crédito) | Oferta gratuita própria (100.000 vCore-segundos e 32 GB/mês, sem usar o crédito) |
-
-As duas trilhas chegam ao **mesmo resultado** na Parte 2: cadastrar e visualizar produtos. A única coisa que muda é o serviço de banco e o driver de conexão. Marque desde já qual você vai seguir:
-
-- [ ] Vou seguir a trilha **MySQL**
-- [ ] Vou seguir a trilha **SQL Server**
+O banco de dados usado neste minicurso é o **Azure SQL Database**, na oferta gratuita da Microsoft (100.000 vCore-segundos e 32 GB de armazenamento por mês) — não consome o crédito da sua conta de estudante. A conexão em Python é feita com `pyodbc` + o Driver ODBC 18, e a extensão do VS Code é a SQL Server (mssql).
 
 ---
 
@@ -38,8 +23,8 @@ As duas trilhas chegam ao **mesmo resultado** na Parte 2: cadastrar e visualizar
 ```
 Passo 1: Conta Azure (estudante)              → 8 min
 Passo 2: Instalar Git, Python, VS Code        → 10 min
-Passo 3: Instalar o driver do seu banco       → 5 min
-Passo 4: Criar o banco de dados no Azure      → 10 min
+Passo 3: Instalar o Driver ODBC 18            → 5 min
+Passo 4: Criar o Azure SQL Database           → 10 min
 Passo 5: Fork + clonar o projeto              → 5 min
 Passo 6: Preparar o ambiente Python           → 5 min
 Passo 7: Testar                               → 5 min
@@ -86,8 +71,8 @@ Se não tiver email IFPR:
 ### 1.5 Pronto!
 
 **Você recebe:**
-- ✅ US$ 100 de crédito Azure (12 meses) — vale para a trilha MySQL
-- ✅ Acesso à oferta gratuita do Azure SQL Database — não consome esse crédito, é um benefício à parte
+- ✅ Acesso à oferta gratuita do Azure SQL Database — usado neste minicurso, sem consumir nenhum crédito
+- ✅ US$ 100 de crédito Azure (12 meses) — não é necessário para este minicurso, mas fica disponível na sua conta para outros projetos
 
 ---
 
@@ -146,18 +131,7 @@ Deve aparecer versões de todas!
 
 ---
 
-## PASSO 3: Instalar o Driver do Seu Banco
-
-Siga **apenas a subseção da trilha que você escolheu.**
-
-### 3A. Trilha MySQL — nada para instalar agora
-
-O driver do MySQL é uma biblioteca Python (`mysql-connector-python`) que você instala junto com o projeto no Passo 6 — não precisa de nenhum instalador do sistema operacional.
-
-Instale só a extensão do VS Code:
-1. Extensions → procure **"MySQL"** (da Oracle ou da Weijan Chen) → Install
-
-### 3B. Trilha SQL Server — instalar o Driver ODBC 18
+## PASSO 3: Instalar o Driver ODBC 18
 
 O `pyodbc` (biblioteca Python que fala com o SQL Server) depende de um driver instalado no sistema operacional: o **Microsoft ODBC Driver 18 for SQL Server**.
 
@@ -201,29 +175,14 @@ Instale também a extensão do VS Code:
 
 ---
 
-## PASSO 4: Criar o Banco de Dados no Azure
-
-Siga **apenas a subseção da trilha que você escolheu.** Os dois caminhos levam ao mesmo lugar: um servidor de banco na nuvem, pronto para receber a tabela `produtos` na Parte 2.
-
-### 4A. Trilha MySQL — Azure Database for MySQL Flexible Server
-
-1. No [portal Azure](https://portal.azure.com), busque **"Azure Database for MySQL flexible servers"** → **Create**
-2. **Basics:** escolha sua assinatura (Azure for Students), crie um Resource Group novo, dê um nome ao servidor, escolha a região mais próxima
-3. **Compute + storage:** deixe o tier "Burstable" (o mais barato) selecionado
-4. **Authentication:** defina um usuário administrador e uma senha — **anote os dois**, vai precisar deles no `.env`
-5. **Networking:** marque **"Allow public access from any Azure service"** e clique em **"Add current client IP address"**
-6. **Review + create** → **Create** (leva de 5 a 15 minutos para provisionar)
-
-**Critério de aceite:** o servidor aparece com status **"Available"** no portal.
-
-### 4B. Trilha SQL Server — Azure SQL Database (oferta gratuita)
+## PASSO 4: Criar o Azure SQL Database (oferta gratuita)
 
 1. Abra https://aka.ms/azuresqlhub e clique em **"Start free"**
 2. Confirme que aparece o aviso **"Free offer applied!"** e que o card de custo mostra **US$ 0/mês**
 3. **Basics:** escolha sua assinatura, crie um Resource Group novo, dê um nome ao banco de dados (ex.: `loja`)
 4. **Server:** clique em **"Create new"** — dê um nome de servidor único globalmente, escolha a região, e em **Authentication method** selecione **"Use SQL authentication"** — defina um login administrador e uma senha (**anote os dois**)
 5. **Networking:** marque **"Allow Azure services and resources to access this server"** e **"Add current client IPv4 address"**
-6. **Review + create** → **Create** (geralmente pronto em 1-2 minutos — bem mais rápido que o MySQL)
+6. **Review + create** → **Create** (geralmente pronto em 1-2 minutos)
 
 **Critério de aceite:** o banco aparece com status **"Online"**, e a tela de criação mostrou "Estimated cost: $0/month" antes de você confirmar.
 
@@ -276,7 +235,7 @@ project-devops-minicurso/
 
 > ⚠️ O código fica dentro da pasta `src/`, não na raiz. Isso importa na hora de rodar o programa (Passo 7 e Parte 2): o comando certo é `python -m src.main`, executado de dentro de `project-devops-minicurso/` — não `python main.py`.
 
-> Se você for seguir a trilha **SQL Server**, vai substituir `src/database.py` e `src/main.py` pela versão adaptada da Parte 2 (pasta `codigo-sqlserver/`) — o projeto original só fala com MySQL.
+> O projeto original só fala com MySQL — antes de rodar, você vai substituir `src/database.py` e `src/main.py` pela versão adaptada para Azure SQL Database (pasta `codigo-sqlserver/`), na Atividade 2 da Parte 2.
 
 ---
 
@@ -298,14 +257,8 @@ O terminal deve mostrar `(venv)` no início da linha depois de ativar.
 
 > ⚠️ Rode esses comandos **de dentro da pasta do projeto** (`project-devops-minicurso`, resultado do Passo 5) — é ali que a pasta `venv` deve ficar. Não copie nem mova uma `venv` já pronta de outro lugar (ex.: da sua pasta pessoal, de um projeto antigo) para dentro desta pasta: os caminhos internos dela ficam gravados no local onde foi criada, e uma `venv` movida costuma dar erro mesmo "ativando" sem problema aparente. Se precisar recomeçar, é mais seguro apagar e criar de novo (veja "SE ALGO DER ERRADO" abaixo).
 
-### 6.2 Instalar as dependências da sua trilha
+### 6.2 Instalar as dependências
 
-**Trilha MySQL:**
-```bash
-python -m pip install mysql-connector-python python-dotenv
-```
-
-**Trilha SQL Server:**
 ```bash
 python -m pip install pyodbc python-dotenv
 ```
@@ -348,8 +301,8 @@ Ainda **não** crie o `.env` nem rode o programa — isso é feito na Parte 2, d
 
 - ✅ Conta Azure criada
 - ✅ Git, Python 3.10+ e VS Code instalados
-- ✅ Driver e extensão do banco da sua trilha instalados
-- ✅ Banco de dados criado no Azure (MySQL Flexible Server **ou** Azure SQL Database gratuito)
+- ✅ Driver ODBC 18 e extensão mssql instalados
+- ✅ Azure SQL Database criado (gratuito)
 - ✅ Fork do projeto loja clonado
 - ✅ Ambiente Python preparado
 - ✅ **100% pronto para a Parte 2! 🚀**
@@ -377,27 +330,22 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### "ModuleNotFoundError: No module named 'mysql'" (trilha MySQL)
-```bash
-python -m pip install mysql-connector-python python-dotenv
-```
-
-### "ModuleNotFoundError: No module named 'pyodbc'" ou "Can't open lib 'ODBC Driver 18...'" (trilha SQL Server)
-O driver ODBC do sistema operacional está faltando, não é só o pacote Python. Refaça o Passo 3B para o seu SO e confirme com:
+### "ModuleNotFoundError: No module named 'pyodbc'" ou "Can't open lib 'ODBC Driver 18...'"
+O driver ODBC do sistema operacional está faltando, não é só o pacote Python. Refaça o Passo 3 para o seu SO e confirme com:
 ```bash
 python -c "import pyodbc; print(pyodbc.drivers())"
 ```
 
-### "Tap ... remote mismatch" ou "Refusing to load formula ... from untrusted tap" (macOS, Passo 3B)
+### "Tap ... remote mismatch" ou "Refusing to load formula ... from untrusted tap" (macOS, Passo 3)
 Isso é do Homebrew, não do driver em si:
-- **remote mismatch:** você digitou (ou copiou de algum lugar) a URL do tap com `Microsoft` maiúsculo — o certo é `microsoft` minúsculo, como está no Passo 3B
+- **remote mismatch:** você digitou (ou copiou de algum lugar) a URL do tap com `Microsoft` maiúsculo — o certo é `microsoft` minúsculo, como está no Passo 3
 - **untrusted tap:** rode `brew trust microsoft/mssql-release` e repita o `brew install`
 
 ### "Login failed" / "Cannot open server ... requested by the login"
-- Trilha MySQL ou SQL Server: confira se seu IP atual está liberado no firewall do servidor (Passo 4) — seu IP pode ter mudado se você trocou de rede
+- Confira se seu IP atual está liberado no firewall do servidor (Passo 4) — seu IP pode ter mudado se você trocou de rede
 - Confira usuário e senha no `.env` (veja a Parte 2)
 
-### A conexão trava/demora e nunca dá erro nem sucesso (trilha SQL Server)
+### A conexão trava/demora e nunca dá erro nem sucesso
 Isso costuma ser a **porta 1433 bloqueada pela rede** que você está usando (comum em redes de campus e corporativas) — diferente do firewall do Passo 4, que é do lado do Azure, esse bloqueio é do lado de fora, na rede local. O Azure SQL Database não tem um jeito de contornar isso usando outra porta.
 - Teste em outra rede (dados móveis/hotspot do celular, por exemplo) para confirmar se é isso
 - Se for uma rede da instituição, peça ao suporte de TI para liberar saída na porta **1433** para `*.database.windows.net`
@@ -425,7 +373,7 @@ Can't open lib 'ODBC Driver 18 for SQL Server' : file not found
 Meu ambiente:
 - OS: macOS 14 (Apple Silicon)
 - Python: 3.12
-- Segui o Passo 3B com brew install msodbcsql18
+- Segui o Passo 3 com brew install msodbcsql18
 
 Já tentei:
 - brew update && brew reinstall msodbcsql18
@@ -443,10 +391,10 @@ Você está pronto para a **[Parte 2: Atividades Práticas](../nivel-1-atividade
 
 - [ ] Conta Azure criada
 - [ ] Git, Python 3.10+ e VS Code instalados
-- [ ] Driver/extensão do banco da sua trilha instalados (MySQL ou ODBC 18 + mssql)
-- [ ] Banco de dados criado no Azure e com status Available/Online
+- [ ] Driver ODBC 18 e extensão mssql instalados
+- [ ] Azure SQL Database criado e com status Online
 - [ ] Fork do projeto loja clonado (do seu usuário, não do original)
-- [ ] Dependências Python da sua trilha instaladas
+- [ ] Dependências Python instaladas (pyodbc, python-dotenv)
 - [ ] VS Code abre o projeto e mostra `src/main.py` e `src/database.py`
 
 **Sim para tudo?** 🎉 **Vamos para a Parte 2!**

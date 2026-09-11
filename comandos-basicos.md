@@ -17,7 +17,7 @@ Sempre trabalhamos com uma **pasta** aberta no VS Code (não um arquivo solto).
 
 ### A paleta de comandos
 
-O atalho mais importante do VS Code: `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux). Abre uma caixa de busca onde você digita o **nome** do que quer fazer, em vez de procurar em menus. Vamos usar isso várias vezes neste minicurso — por exemplo, para conectar ao banco de dados (comandos que começam com "MS SQL:" ou "MySQL:").
+O atalho mais importante do VS Code: `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux). Abre uma caixa de busca onde você digita o **nome** do que quer fazer, em vez de procurar em menus. Vamos usar isso várias vezes neste minicurso — por exemplo, para conectar ao banco de dados (comandos que começam com "MS SQL:").
 
 ### Terminal integrado
 
@@ -31,7 +31,7 @@ Um terminal *dentro* do VS Code, sem precisar abrir outro programa.
 Extensões são "plugins" que ensinam o VS Code a fazer coisas novas — como falar com um banco de dados.
 
 1. Clique no ícone de blocos empilhados na barra lateral esquerda (ou `Cmd+Shift+X` / `Ctrl+Shift+X`)
-2. Digite o nome da extensão na busca (por exemplo, **"SQL Server (mssql)"** ou **"MySQL"**)
+2. Digite o nome da extensão na busca (por exemplo, **"SQL Server (mssql)"** ou **"Python"**)
 3. Clique em **Install** na que tiver o ícone da Microsoft (para mssql) ou o nome do autor indicado no guia
 4. Pronto — não precisa reiniciar o VS Code, geralmente já fica disponível
 
@@ -41,7 +41,7 @@ Extensões são "plugins" que ensinam o VS Code a fazer coisas novas — como fa
 - Edite normalmente, como em qualquer editor de texto
 - Salvar: `Cmd+S` (Mac) ou `Ctrl+S` (Windows/Linux) — **sempre salve antes de rodar algo**, o VS Code não salva sozinho
 
-### Conectar a um banco de dados e rodar uma consulta (extensão mssql, trilha SQL Server)
+### Conectar a um banco de dados e rodar uma consulta (extensão mssql)
 
 1. Crie um arquivo novo terminando em `.sql` (por exemplo, `teste.sql`) e deixe-o em foco (clique dentro dele)
 2. `Cmd+Shift+P` → digite **"MS SQL: Connect"** (o comando certo começa com "MS SQL", não "SQL Server")
@@ -51,13 +51,11 @@ Extensões são "plugins" que ensinam o VS Code a fazer coisas novas — como fa
 
 > ⚠️ Erro **"A SQL editor must have focus before you can execute this command"**? É porque o passo 1 não foi feito antes do passo 2 — o comando "MS SQL: Connect" só funciona com um arquivo `.sql` aberto e em foco. Crie/abra o arquivo `.sql`, clique dentro dele para garantir o foco, e tente de novo.
 
-(Para a trilha MySQL, o fluxo é parecido — os comandos na paleta começam com "MySQL:" em vez de "MS SQL:".)
-
 ---
 
 ## 🗄️ SQL básico
 
-SQL é a linguagem para conversar com um banco de dados relacional (MySQL e SQL Server são dois "sotaques" dela — bem parecidos, com pequenas diferenças de sintaxe). Nós usamos só um punhado de comandos neste minicurso.
+SQL é a linguagem para conversar com um banco de dados relacional. Nós usamos só um punhado de comandos neste minicurso, no Azure SQL Database.
 
 ### O básico: tabelas, linhas e colunas
 
@@ -69,7 +67,7 @@ Uma tabela é como uma planilha: tem **colunas** (os campos, ex.: `nome_produto`
 
 ```sql
 CREATE TABLE produtos (
-    id INT IDENTITY(1,1) PRIMARY KEY,   -- SQL Server (no MySQL: AUTO_INCREMENT)
+    id INT IDENTITY(1,1) PRIMARY KEY,   -- gera o número sozinho, a cada nova linha
     nome_produto VARCHAR(100) NOT NULL,
     valor DECIMAL(10,2) NOT NULL
 );
@@ -107,16 +105,6 @@ No minicurso, quem roda esse comando é o **próprio programa** (`main.py`, opç
 ```sql
 INSERT INTO produtos (nome_produto, valor) VALUES ('Mouse Sem Fio', 89.90);
 ```
-
-### Onde as duas trilhas mudam
-
-| | 🐬 MySQL | 🟦 SQL Server |
-|---|---|---|
-| Coluna que numera sozinha | `AUTO_INCREMENT` | `IDENTITY(1,1)` |
-| Criar um banco novo | `CREATE DATABASE loja;` (existe, roda antes das tabelas) | não existe — o banco já é o próprio recurso Azure SQL Database criado no Setup Inicial |
-| Ver as colunas de uma tabela | `DESCRIBE produtos;` | painel da extensão mssql (Databases → loja → Tables → produtos → Columns) ou `SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'produtos';` |
-
-O resto (`SELECT`, `INSERT INTO`, `WHERE`) é **idêntico** nas duas trilhas — é por isso que dá para trocar de trilha na Atividade 5 e o resultado final é o mesmo.
 
 ---
 
@@ -232,7 +220,7 @@ Um Pull Request é um **pedido para juntar** as mudanças de um branch de volta 
 ## 🔗 Onde isso se encaixa no minicurso
 
 - **Setup Inicial**, Passo 2.3: instalar o VS Code e a extensão Python
-- **Setup Inicial**, Passo 3B: instalar a extensão SQL Server (mssql) — trilha SQL Server
+- **Setup Inicial**, Passo 3: instalar a extensão SQL Server (mssql)
 - **Setup Inicial**, Passo 5.1: primeiro **Fork**, no GitHub
 - **Setup Inicial**, Passo 5.2: primeiro `git clone`
 - **Parte 2**, Atividade 2: primeiro `git checkout -b`

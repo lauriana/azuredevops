@@ -4,7 +4,7 @@ Boas Vindas! Aqui está todo o material dos minicursos de DevOps.
 
 ## 🎯 Objetivo
 
-Aprender DevOps do zero com **Python + Git + Azure** — bancos de dados **MySQL** ou **SQL Server**, sua escolha.
+Aprender DevOps do zero com **Python + Git + Azure SQL Database**.
 
 Em 3 níveis. Sem teoria maçante. **Apenas prática!**
 
@@ -18,13 +18,7 @@ Em 3 níveis. Sem teoria maçante. **Apenas prática!**
 
 ### Minicurso Nível 1: Fundamentos de Devops, Cloud e Sustentabilidade (2h)
 
-O Nível 1 tem duas partes. Faça-as em ordem — a segunda depende do ambiente montado na primeira. Funciona em **Windows, macOS e Linux**, e você escolhe entre duas trilhas de banco de dados (pode até fazer as duas, se sobrar tempo):
-
-| | 🐬 MySQL | 🟦 SQL Server |
-|---|---|---|
-| Serviço no Azure | Azure Database for MySQL | Azure SQL Database (oferta gratuita) |
-| Custo | consome crédito da conta de estudante | grátis todo mês, sem cartão de crédito |
-| Biblioteca Python | `mysql-connector-python` | `pyodbc` |
+O Nível 1 tem duas partes. Faça-as em ordem — a segunda depende do ambiente montado na primeira. Funciona em **Windows, macOS e Linux**, usando o **Azure SQL Database** (oferta gratuita, sem cartão de crédito) e a biblioteca Python `pyodbc`.
 
 ### Parte 1 — Setup Inicial (30 min)
 [Clique aqui](./setup-inicial/README.md)
@@ -32,7 +26,7 @@ O Nível 1 tem duas partes. Faça-as em ordem — a segunda depende do ambiente 
 Você vai:
 - Criar conta Azure (estudante)
 - Instalar Git, Python, VS Code (instruções para Windows, macOS e Linux)
-- Escolher sua trilha de banco (MySQL ou SQL Server) e criar o banco de dados na nuvem
+- Criar o Azure SQL Database (oferta gratuita) na nuvem
 - Fazer fork e clonar o projeto de exemplo (o mesmo padrão vale para clonar qualquer projeto seu de interesse depois)
 - Preparar o ambiente Python
 
@@ -42,10 +36,10 @@ Você vai:
 Você vai aprender, com tarefas específicas no **projeto loja**:
 - Planejar o trabalho no **Azure Boards** (Épico → Issues → Tasks)
 - Versionar o código no **Azure Repos**, com commits vinculados às tarefas
-- Conectar a aplicação ao banco da sua trilha (MySQL ou SQL Server) e criar a tabela `produtos`
+- Conectar a aplicação ao Azure SQL Database e criar a tabela `produtos`
 - Cadastrar um produto e validar de ponta a ponta
 
-O código do projeto loja tem como base [renanolv7/project-devops-minicurso](https://github.com/renanolv7/project-devops-minicurso) (trilha MySQL original); a variante para a trilha SQL Server está em [`nivel-1-atividades/codigo-sqlserver/`](./nivel-1-atividades/codigo-sqlserver/).
+O código do projeto loja tem como base [renanolv7/project-devops-minicurso](https://github.com/renanolv7/project-devops-minicurso) (que fala com MySQL); este minicurso usa a variante para Azure SQL Database em [`nivel-1-atividades/codigo-sqlserver/`](./nivel-1-atividades/codigo-sqlserver/), que substitui os dois arquivos de conexão do projeto original.
 
 ### Referência — Comandos Básicos (VS Code, SQL, Git e GitHub)
 [Clique aqui](./comandos-basicos.md)

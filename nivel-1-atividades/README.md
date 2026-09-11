@@ -2,7 +2,7 @@
 
 **Tempo:** 1h30 (o restante da oficina Nível 1)
 
-**Pré-requisito:** ter concluído o [Setup Inicial](../setup-inicial/README.md) — conta Azure, ferramentas instaladas, banco de dados criado, fork do projeto loja clonado. Você já deve saber **qual trilha** vai seguir: 🐬 MySQL ou 🟦 SQL Server.
+**Pré-requisito:** ter concluído o [Setup Inicial](../setup-inicial/README.md) — conta Azure, ferramentas instaladas, banco de dados criado, fork do projeto loja clonado.
 
 ---
 
@@ -12,7 +12,7 @@ Você não vai só seguir um passo a passo técnico — vai **planejar e rastrea
 
 - **Azure Boards**: quadro com Épico → Issues → Tasks, movidas conforme você avança
 - **Azure Repos**: código do projeto loja versionado, com commits vinculados às tarefas
-- O **banco de dados da sua trilha** (MySQL ou SQL Server), já criado no Setup Inicial
+- O **Azure SQL Database**, já criado no Setup Inicial
 
 ```
 Atividade 1: Criar o Board (Épico + Issues + Tasks)      → 15 min
@@ -60,10 +60,9 @@ Corresponde à **Issue 1**.
 - [ ] Confirme a importação — o histórico de commits do fork é preservado
 - [ ] Crie uma branch a partir de `main`: `feature/1-preparar-ambiente`
 - [ ] Clone o repositório **do Azure Repos** (não mais do GitHub) para uma pasta local
+- [ ] Copie `database.py` e `main.py` da pasta [`codigo-sqlserver/`](./codigo-sqlserver/) para dentro de **`src/`**, substituindo os originais (o projeto original só fala com MySQL) — veja o [README daquela pasta](./codigo-sqlserver/README.md) para o passo a passo
 
-**🟦 Se você está na trilha SQL Server:** agora é a hora de copiar `database.py` e `main.py` da pasta [`codigo-sqlserver/`](./codigo-sqlserver/) para dentro da pasta **`src/`** do projeto clonado, substituindo os originais (feitos para MySQL). Veja o [README daquela pasta](./codigo-sqlserver/README.md) para o passo a passo.
-
-**Critério de aceite:** o repositório aparece em Repos → Files; você tem uma cópia local clonada do Azure Repos com `src/main.py` e `src/database.py` da sua trilha.
+**Critério de aceite:** o repositório aparece em Repos → Files; você tem uma cópia local clonada do Azure Repos com `src/main.py` e `src/database.py` adaptados para Azure SQL Database.
 
 ---
 
@@ -74,15 +73,7 @@ Corresponde à **Issue 2**.
 - [ ] Copie `.env.example` para `.env`
 - [ ] Preencha as 4 variáveis com os dados do banco **que você criou no Setup Inicial**
 
-**🐬 Trilha MySQL** — variáveis lidas por `src/database.py`:
-```
-DB_HOST=seu-servidor.mysql.database.azure.com
-DB_USER=seu_usuario_admin
-DB_PASSWORD=sua_senha
-DB_NAME=loja
-```
-
-**🟦 Trilha SQL Server** — mesmas 4 variáveis, valores diferentes:
+Variáveis lidas por `src/database.py`:
 ```
 DB_HOST=seu-servidor.database.windows.net
 DB_USER=seu_usuario_admin
@@ -90,7 +81,7 @@ DB_PASSWORD=sua_senha
 DB_NAME=loja
 ```
 
-> ⚠️ Os nomes das variáveis são **sempre estes 4**: `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` — não use `DB_PORT` nem `DB_DATABASE`, nenhum dos dois `database.py` (MySQL ou SQL Server) lê esses nomes.
+> ⚠️ Os nomes das variáveis são **sempre estes 4**: `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` — não use `DB_PORT` nem `DB_DATABASE`, o `database.py` não lê esses nomes.
 
 - [ ] Confirme que `.env` **não** aparece em `git status` (deve estar no `.gitignore`)
 - [ ] Commit da branch vinculado ao work item:
@@ -107,23 +98,10 @@ git commit -m "Configura variaveis do banco (AB#2)"
 
 ## ATIVIDADE 4 — Criar a tabela `produtos` no banco (10 min)
 
-Corresponde à **Issue 3**. Abra o VS Code, conecte-se ao seu banco com a extensão da sua trilha (MySQL ou mssql), e rode o SQL correspondente.
+Corresponde à **Issue 3**. Abra o VS Code, conecte-se ao seu banco com a extensão mssql, e rode o SQL abaixo.
 
 > 💡 Primeira vez conectando a um banco pelo VS Code, ou primeira vez escrevendo um comando SQL? Veja **[Comandos Básicos](../comandos-basicos.md)** antes de continuar — explica `CREATE TABLE`, `SELECT`, e como rodar uma consulta na extensão.
 
-**🐬 Trilha MySQL:**
-```sql
-CREATE DATABASE loja;
-USE loja;
-
-CREATE TABLE produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_produto VARCHAR(100) NOT NULL,
-    valor DECIMAL(10,2) NOT NULL
-);
-```
-
-**🟦 Trilha SQL Server:**
 ```sql
 CREATE TABLE produtos (
     id INT IDENTITY(1,1) PRIMARY KEY,
@@ -134,19 +112,12 @@ CREATE TABLE produtos (
 
 (no Azure SQL Database o banco `loja` já foi escolhido/criado no momento em que você criou o recurso no Setup Inicial — não existe um comando `CREATE DATABASE` a rodar aqui dentro dele, você já está conectado nele.)
 
-- [ ] Valide as colunas: **`id`, `nome_produto`, `valor`**, nem uma a mais nem com nomes diferentes
-
-**🐬 MySQL:**
-```sql
-DESCRIBE produtos;
-```
-
-**🟦 SQL Server:** expanda **Databases → loja → Tables → produtos → Columns** no painel da extensão mssql, ou rode:
+- [ ] Valide as colunas: **`id`, `nome_produto`, `valor`**, nem uma a mais nem com nomes diferentes — expanda **Databases → loja → Tables → produtos → Columns** no painel da extensão mssql, ou rode:
 ```sql
 SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'produtos';
 ```
 
-**Critério de aceite:** a tabela existe com exatamente essas 3 colunas — são as que `main.py` (na sua trilha) espera encontrar.
+**Critério de aceite:** a tabela existe com exatamente essas 3 colunas — são as que `main.py` espera encontrar.
 
 ---
 
@@ -164,7 +135,7 @@ A partir da **raiz** do projeto (não de dentro de `src/`):
 python -m src.main
 ```
 
-> ⚠️ O código do projeto loja fica dentro de uma pasta `src/` (`src/main.py`, `src/database.py`), então `python main.py` ou `python src/main.py` **não funcionam** — dão erro de import. `python -m src.main` é o comando certo nas duas trilhas.
+> ⚠️ O código do projeto loja fica dentro de uma pasta `src/` (`src/main.py`, `src/database.py`), então `python main.py` ou `python src/main.py` **não funcionam** — dão erro de import. `python -m src.main` é o comando certo.
 
 Deve aparecer o menu:
 ```
@@ -174,8 +145,6 @@ Deve aparecer o menu:
 =      (3) - Sair                         =
 ===========================================
 ```
-
-(idêntico nas duas trilhas — só o que acontece por trás do menu muda)
 
 ### 5.2 Cadastrar seu primeiro produto
 
@@ -197,7 +166,6 @@ SELECT * FROM produtos;
 - [ ] Cadastre mais 2 produtos pela opção 1
 - [ ] Rode `SELECT nome_produto, valor FROM produtos WHERE valor > 50;`
 - [ ] Commit do que mudou: `git commit -m "Valida cadastro de produto (AB#4)"`
-- [ ] **Bônus para quem tem tempo de sobra:** repita a Atividade 5 na **outra trilha** (se você fez MySQL, tente SQL Server e vice-versa) — o banco de dados já foi criado no Setup Inicial se você seguiu as duas subseções lá
 
 **Critério de aceite:** um produto cadastrado por você na opção 1 aparece tanto na opção 2 do programa quanto em um `SELECT * FROM produtos` direto no banco.
 
@@ -209,7 +177,7 @@ SELECT * FROM produtos;
 - [ ] Revise o diff — confirme que `.env` **não** aparece nas mudanças
 - [ ] Faça o merge dos Pull Requests
 - [ ] Mova as 4 Issues para **Concluído** no Board
-- [ ] **Importante:** exclua ou marque para exclusão os recursos Azure usados (Resource Group do MySQL e/ou o Azure SQL Database) para não consumir crédito ou a oferta gratuita à toa
+- [ ] **Importante:** exclua ou marque para exclusão o Azure SQL Database usado, para não deixar recursos de teste ativos à toa
 
 **Critério de aceite:** Board com as 4 Issues em "Concluído"; nenhum recurso de teste continua ativo na sua assinatura.
 
@@ -219,7 +187,7 @@ SELECT * FROM produtos;
 
 - ✅ Board no Azure DevOps com o histórico completo do que foi feito
 - ✅ Código do projeto loja versionado no Azure Repos, com commits linkados às tarefas
-- ✅ Banco de dados na nuvem (MySQL e/ou SQL Server), com a tabela `produtos` no formato correto
+- ✅ Azure SQL Database na nuvem, com a tabela `produtos` no formato correto
 - ✅ Aplicação funcionando de ponta a ponta — você cadastrou um produto de verdade
 - ✅ Prática real do ciclo: **item de backlog → branch → commit → Pull Request → item concluído**
 
