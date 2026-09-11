@@ -311,6 +311,8 @@ Ainda **não** crie o `.env` nem rode o programa — isso é feito na Parte 2, d
 
 ## ⚠️ SE ALGO DER ERRADO
 
+> 💡 Resumo de uma página só com os erros mais comuns: **[Chuleta de Erros Comuns](../chuleta-erros-comuns.md)**.
+
 ### "Git não encontrado"
 Reinstale: Windows → [git-scm.com](https://git-scm.com/download/win) · macOS → `brew install git` · Linux → `sudo apt install git`
 

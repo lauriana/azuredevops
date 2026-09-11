@@ -4,6 +4,8 @@
 
 **Pré-requisito:** ter concluído o [Setup Inicial](../setup-inicial/README.md) — conta Azure, ferramentas instaladas, banco de dados criado, fork do projeto loja clonado.
 
+> 👥 Se der, sente perto de alguém — comparar o progresso de vez em quando ajuda a pegar travas mais rápido do que resolver tudo sozinho.
+
 ---
 
 ## 📌 O que você vai fazer
@@ -29,6 +31,8 @@ Depois destas atividades, se quiser ir mais fundo no Azure DevOps como ferrament
 
 ## ATIVIDADE 1 — Criar o Board (15 min)
 
+*Por que isso importa: em um time real, quase todo trabalho começa sendo quebrado em tarefas rastreáveis — não direto no código.*
+
 ### 1.1 Organização e Projeto
 
 1. Acesse https://dev.azure.com e crie sua **Organização** (se ainda não tiver uma)
@@ -49,9 +53,13 @@ Use o processo **Basic** (Épico → Issue → Task). No Board do projeto, crie:
 
 **Critério de aceite:** o Board mostra o Epic e as 4 Issues na coluna "A Fazer".
 
+> 👥 Checkpoint rápido: compare seu Board com o de alguém perto de você — os nomes do Epic e das Issues batem?
+
 ---
 
 ## ATIVIDADE 2 — Trazer o código para o Azure Repos (10 min)
+
+*Por que isso importa: hoje quase todo código de verdade mora num repositório com histórico — trazer o projeto para lá é o primeiro passo antes de qualquer mudança.*
 
 Corresponde à **Issue 1**.
 
@@ -67,6 +75,8 @@ Corresponde à **Issue 1**.
 ---
 
 ## ATIVIDADE 3 — Conectar a aplicação ao banco (10 min)
+
+*Por que isso importa: nunca colocar senha ou chave direto no código é uma das regras de segurança mais básicas do mercado — é para isso que existe o `.env`.*
 
 Corresponde à **Issue 2**.
 
@@ -98,6 +108,8 @@ git commit -m "Configura variaveis do banco (AB#2)"
 
 ## ATIVIDADE 4 — Criar a tabela `produtos` no banco (10 min)
 
+*Por que isso importa: toda aplicação real depende de um banco de dados estruturado corretamente antes de rodar — é o alicerce que vem antes do código.*
+
 Corresponde à **Issue 3**. Abra o VS Code, conecte-se ao seu banco com a extensão mssql, e rode o SQL abaixo.
 
 > 💡 Primeira vez conectando a um banco pelo VS Code, ou primeira vez escrevendo um comando SQL? Veja **[Comandos Básicos](../comandos-basicos.md)** antes de continuar — explica `CREATE TABLE`, `SELECT`, e como rodar uma consulta na extensão.
@@ -122,6 +134,8 @@ SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =
 ---
 
 ## ATIVIDADE 5 — Cadastrar um produto (15 min) 🎯
+
+*Por que isso importa: é o momento em que tudo se conecta — código, banco e infraestrutura funcionando juntos, exatamente como em produção.*
 
 Esta é a atividade principal: colocar o CRUD para funcionar de ponta a ponta. Corresponde à **Issue 4**.
 
@@ -169,9 +183,13 @@ SELECT * FROM produtos;
 
 **Critério de aceite:** um produto cadastrado por você na opção 1 aparece tanto na opção 2 do programa quanto em um `SELECT * FROM produtos` direto no banco.
 
+> 👥 Checkpoint rápido: mostre para alguém perto de você que o produto cadastrado aparece tanto na opção 2 quanto no `SELECT`. Ajudar o colega a chegar lá também conta.
+
 ---
 
 ## ATIVIDADE 6 — Encerramento e Pull Request (10 min)
+
+*Por que isso importa: é exatamente o que acontece toda vez que alguém abre um Pull Request numa empresa de verdade — revisão antes de integrar.*
 
 - [ ] Abra um **Pull Request** de cada branch de trabalho de volta para `main`
 - [ ] Revise o diff — confirme que `.env` **não** aparece nas mudanças
