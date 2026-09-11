@@ -43,13 +43,15 @@ Extensões são "plugins" que ensinam o VS Code a fazer coisas novas — como fa
 
 ### Conectar a um banco de dados e rodar uma consulta (extensão mssql, trilha SQL Server)
 
-1. `Cmd+Shift+P` → digite **"SQL Server: Connect"** (ou clique no ícone da extensão na barra lateral)
-2. Preencha servidor, usuário e senha quando for pedido (os mesmos dados do seu `.env`)
-3. Crie um arquivo novo terminando em `.sql` (por exemplo, `teste.sql`)
-4. Escreva seu comando SQL nele
+1. Crie um arquivo novo terminando em `.sql` (por exemplo, `teste.sql`) e deixe-o em foco (clique dentro dele)
+2. `Cmd+Shift+P` → digite **"MS SQL: Connect"** (o comando certo começa com "MS SQL", não "SQL Server")
+3. Preencha servidor, usuário e senha quando for pedido (os mesmos dados do seu `.env`)
+4. Escreva seu comando SQL no arquivo `.sql`
 5. Selecione o texto do comando e rode: clique com o botão direito → **"Execute Query"**, ou o ícone de "play" que aparece no canto do editor
 
-(Para a trilha MySQL, o fluxo é o mesmo, só muda para a extensão MySQL e o comando na paleta começa com "MySQL:".)
+> ⚠️ Erro **"A SQL editor must have focus before you can execute this command"**? É porque o passo 1 não foi feito antes do passo 2 — o comando "MS SQL: Connect" só funciona com um arquivo `.sql` aberto e em foco. Crie/abra o arquivo `.sql`, clique dentro dele para garantir o foco, e tente de novo.
+
+(Para a trilha MySQL, o fluxo é parecido — os comandos na paleta começam com "MySQL:" em vez de "MS SQL:".)
 
 ---
 
