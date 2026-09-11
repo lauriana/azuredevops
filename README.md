@@ -46,6 +46,11 @@ O código do projeto loja tem como base [renanolv7/project-devops-minicurso](htt
 
 Nunca usou o VS Code, escreveu um comando SQL, ou mexeu com Git/GitHub? Este guia de consulta rápida explica paleta de comandos, terminal integrado, instalar extensão, os comandos `CREATE TABLE`/`SELECT`/`INSERT INTO`, `git clone`/`add`/`commit`/`push`, e o que é um Fork e um Pull Request — linkado também de dentro do Setup Inicial e da Parte 2, no momento em que cada coisa aparece pela primeira vez.
 
+### Referência — Guia Rápido de Erros Comuns
+[Clique aqui](./guia-rapido-erros-comuns.md)
+
+Uma página só, com os erros mais frequentes do minicurso (Git, Python, venv, driver ODBC, conexão, coluna errada) e a solução rápida de cada um — para deixar aberto numa aba enquanto você trabalha.
+
 ### Complemento — Azure DevOps na Prática (~1h, opcional)
 [Clique aqui](./nivel-1-atividades/azure-devops-na-pratica.md)
 

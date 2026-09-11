@@ -229,4 +229,6 @@ Um Pull Request é um **pedido para juntar** as mudanças de um branch de volta 
 - **Parte 2**, Atividade 5: usar `SELECT` para conferir o que o programa cadastrou
 - **Parte 2**, Atividade 6: primeiro `git push` para abrir o Pull Request
 
+Prefere um resumo dos erros mais comuns em uma página só? Veja o **[Guia Rápido de Erros Comuns](./guia-rapido-erros-comuns.md)**.
+
 Voltando para o [Setup Inicial](./setup-inicial/README.md) ou para a [Parte 2](./nivel-1-atividades/README.md)? Este guia continua aqui, um clique de distância, sempre que precisar.
