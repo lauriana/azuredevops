@@ -17,7 +17,7 @@ Sempre trabalhamos com uma **pasta** aberta no VS Code (não um arquivo solto).
 
 ### A paleta de comandos
 
-O atalho mais importante do VS Code: `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux). Abre uma caixa de busca onde você digita o **nome** do que quer fazer, em vez de procurar em menus. Vamos usar isso várias vezes neste minicurso — por exemplo, para conectar ao banco de dados (comandos que começam com "SQL Server:" ou "MySQL:").
+O atalho mais importante do VS Code: `Cmd+Shift+P` (Mac) ou `Ctrl+Shift+P` (Windows/Linux). Abre uma caixa de busca onde você digita o **nome** do que quer fazer, em vez de procurar em menus. Vamos usar isso várias vezes neste minicurso — por exemplo, para conectar ao banco de dados (comandos que começam com "MS SQL:" ou "MySQL:").
 
 ### Terminal integrado
 
@@ -114,7 +114,7 @@ INSERT INTO produtos (nome_produto, valor) VALUES ('Mouse Sem Fio', 89.90);
 |---|---|---|
 | Coluna que numera sozinha | `AUTO_INCREMENT` | `IDENTITY(1,1)` |
 | Criar um banco novo | `CREATE DATABASE loja;` (existe, roda antes das tabelas) | não existe — o banco já é o próprio recurso Azure SQL Database criado no Setup Inicial |
-| Ver as colunas de uma tabela | `DESCRIBE produtos;` | consultar `sys.columns` ou o painel de tabelas da extensão mssql |
+| Ver as colunas de uma tabela | `DESCRIBE produtos;` | painel da extensão mssql (Databases → loja → Tables → produtos → Columns) ou `SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'produtos';` |
 
 O resto (`SELECT`, `INSERT INTO`, `WHERE`) é **idêntico** nas duas trilhas — é por isso que dá para trocar de trilha na Atividade 5 e o resultado final é o mesmo.
 

@@ -156,6 +156,8 @@ Esta é a atividade principal: colocar o CRUD para funcionar de ponta a ponta. C
 
 ### 5.1 Rodar a aplicação
 
+> 💡 Não lembra onde digitar esse comando? É no **terminal integrado do VS Code** (`` Ctrl+` `` ou menu Terminal → New Terminal). Primeira vez, ou voltando ao projeto depois de um tempo? Veja **[Comandos Básicos](../comandos-basicos.md)**.
+
 A partir da **raiz** do projeto (não de dentro de `src/`):
 
 ```bash

@@ -296,6 +296,8 @@ source venv/bin/activate
 
 O terminal deve mostrar `(venv)` no início da linha depois de ativar.
 
+> ⚠️ Rode esses comandos **de dentro da pasta do projeto** (`project-devops-minicurso`, resultado do Passo 5) — é ali que a pasta `venv` deve ficar. Não copie nem mova uma `venv` já pronta de outro lugar (ex.: da sua pasta pessoal, de um projeto antigo) para dentro desta pasta: os caminhos internos dela ficam gravados no local onde foi criada, e uma `venv` movida costuma dar erro mesmo "ativando" sem problema aparente. Se precisar recomeçar, é mais seguro apagar e criar de novo (veja "SE ALGO DER ERRADO" abaixo).
+
 ### 6.2 Instalar as dependências da sua trilha
 
 **Trilha MySQL:**
@@ -365,6 +367,15 @@ python --version   # se falhar, tente:
 python3 --version
 ```
 Se persistir, reinstale marcando "Add to PATH" (Windows).
+
+### Não apareceu `(venv)` depois de ativar, ou a venv dá erro estranho mesmo "ativada"
+- Confirme que você está dentro da pasta do projeto antes de rodar `source venv/bin/activate` — rode `pwd` (macOS/Linux) ou `cd` sozinho (Windows) para conferir
+- Se a pasta `venv` foi **copiada ou movida** de outro lugar (em vez de criada ali com `python3 -m venv venv`), os caminhos internos dela apontam para o lugar errado — isso dá erro de forma sutil (ex.: `pip install` parece funcionar mas instala no lugar errado, ou dá "No such file or directory"). Solução: apague e crie de novo, direto na pasta do projeto:
+```bash
+rm -rf venv          # Windows: rmdir /s venv
+python3 -m venv venv
+source venv/bin/activate
+```
 
 ### "ModuleNotFoundError: No module named 'mysql'" (trilha MySQL)
 ```bash
