@@ -49,32 +49,41 @@ Passo 7: Testar                               → 5 min
 
 ## PASSO 1: Criar Conta Azure (estudante)
 
-### 1.1 Acessar Azure para estudantes
+### 1.1 Acessar a página do Azure for Students
 
-1. Abra: https://azure.microsoft.com/pt-br/resources/students/
-3. Clique em **"Entrar"**
+1. Abra: https://azure.microsoft.com/pt-br/free/students
+2. Clique em **"Comece gratuitamente"**
 
-### 1.2 Usar email do IFPR
+### 1.2 Entrar ou criar uma conta Microsoft
 
+Antes de qualquer outra coisa, a Microsoft pede para você entrar com uma **conta Microsoft** — é a mesma conta usada no Outlook, Teams ou Xbox, não é uma conta "da Azure" separada:
+
+- **Já tem uma conta Microsoft?** Entre normalmente com ela.
+- **Não tem?** Clique em **"Criar uma!"** e crie uma conta nova. Recomendação: use seu e-mail `seu_login@ifpr.edu.br` como e-mail dessa conta — assim o próximo passo (verificação de aluno) já reconhece o domínio da instituição automaticamente.
+
+> 💡 "Conta Microsoft" e "conta Azure" não são coisas diferentes — toda conta Azure é acessada através de uma conta Microsoft.
+
+### 1.3 Verificar que você é aluno
+
+Informe seu e-mail institucional:
 ```
 seu_login@ifpr.edu.br
 ```
 
+A Microsoft envia um link (ou código) de verificação para essa caixa de entrada — abra o e-mail e confirme.
+
 Se não tiver email IFPR:
 - Peça ao coordenador do curso
-- Ou use email pessoal + validação por SMS
+- Ou use email pessoal — nesse caso pode ser pedido um comprovante de matrícula (carteirinha, declaração)
 
-### 1.3 Preencher formulário
+### 1.4 Completar o cadastro
 
-- [ ] Email: seu_email@ifpr.edu.br
-- [ ] Senha: crie uma forte
 - [ ] País: Brasil
-- [ ] Telefone: validar por SMS
+- [ ] Telefone: pode pedir validação por SMS
 - [ ] Data de nascimento
+- [ ] Aceitar os Termos de Uso e a Política de Privacidade
 
-### 1.4 Validação
-
-- Microsoft envia SMS → digite o código → pronto!
+### 1.5 Pronto!
 
 **Você recebe:**
 - ✅ US$ 100 de crédito Azure (12 meses) — vale para a trilha MySQL
