@@ -1,4 +1,4 @@
-# Chuleta de Erros Comuns
+# Guia Rápido de Erros Comuns
 
 Resumo de uma página só, com os erros mais frequentes do minicurso e a solução rápida. Não substitui o [Setup Inicial](./setup-inicial/README.md), a [Parte 2](./nivel-1-atividades/README.md) nem os [Comandos Básicos](./comandos-basicos.md) — é para deixar aberto numa aba enquanto você trabalha.
 
