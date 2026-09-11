@@ -134,7 +134,17 @@ CREATE TABLE produtos (
 
 (no Azure SQL Database o banco `loja` já foi escolhido/criado no momento em que você criou o recurso no Setup Inicial — não existe um comando `CREATE DATABASE` a rodar aqui dentro dele, você já está conectado nele.)
 
-- [ ] Valide com `DESCRIBE produtos;` (MySQL) ou consultando **`sys.columns`**/o painel de tabelas da extensão mssql (SQL Server) — confirme as colunas **`id`, `nome_produto`, `valor`**, nem uma a mais nem com nomes diferentes
+- [ ] Valide as colunas: **`id`, `nome_produto`, `valor`**, nem uma a mais nem com nomes diferentes
+
+**🐬 MySQL:**
+```sql
+DESCRIBE produtos;
+```
+
+**🟦 SQL Server:** expanda **Databases → loja → Tables → produtos → Columns** no painel da extensão mssql, ou rode:
+```sql
+SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'produtos';
+```
 
 **Critério de aceite:** a tabela existe com exatamente essas 3 colunas — são as que `main.py` (na sua trilha) espera encontrar.
 
