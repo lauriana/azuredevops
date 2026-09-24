@@ -18,7 +18,7 @@ Em 3 níveis. Sem teoria maçante. **Apenas prática!**
 
 ### Minicurso Nível 1: Fundamentos de Devops, Cloud e Sustentabilidade (2h)
 
-O nível 1 ensina o ciclo real de trabalho de um time DevOps - planejar (Azure Boards), versionar (Azure Repos), configurar ambiente e nuvem, entregar (Pull Request) - através de um projeto prático enxuto: o "projeto loja", um CRUD de cadastro de produtos em Python conectado a um banco de dados gerenciado no Azure. O aluno não segue só um passo a passo técnico: ele pratica rastrear o próprio trabalho como em um time real (Épico -> Issues -> Tasks, commits vinculados a work items, Pull Request revisado antes do merge). 
+O nível 1 ensina o ciclo real de trabalho de um time DevOps - planejar (Azure Boards), versionar (Azure Repos), configurar ambiente e nuvem, entregar (Pull Request) - através de um projeto prático enxuto: o "projeto loja", um CRUD de cadastro de produtos em Python conectado a um banco de dados gerenciado no Azure. O objetivo não é seguir só um passo a passo técnico: é praticar rastrear o próprio trabalho como em um time real (Épico -> Issues -> Tasks, commits vinculados a work items, Pull Request revisado antes do merge). O projeto é bem pequeno de propósito, para o foco ficar no processo, não na complexidade do código. Ao final, cada um vai ter cadastrado um produto de verdade em um banco de dados na nuvem, através de um fluxo com Board, Git e Pull Request.
 
 O Nível 1 tem duas partes. Faça-as em ordem — a segunda depende do ambiente montado na primeira. Funciona em **Windows, macOS e Linux**, usando o **Azure SQL Database** (oferta gratuita, sem cartão de crédito) e a biblioteca Python `pyodbc`.
 
