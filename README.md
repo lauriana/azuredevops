@@ -26,7 +26,7 @@ O projeto é bem pequeno de propósito, para o foco ficar no processo, não na c
 
 O Nível 1 tem duas partes. Faça-as em ordem — a segunda depende do ambiente montado na primeira. Funciona em **Windows, macOS e Linux**, usando o **Azure SQL Database** (oferta gratuita, sem cartão de crédito) e a biblioteca Python `pyodbc`.
 
-Você pode também acessar o material do minicurso do Nível 1 pelo guia que reúne o Setup Inicial, as Atividades Práticas, os comandos de referência e os erros mais comuns: https://fundamentos-de-devops.vercel.app/ 
+Você pode também acessar o material do minicurso do Nível 1 pelo guia que reúne o Setup Inicial, as Atividades Práticas, os comandos de referência e os erros mais comuns: https://guia-devops-fundamentos-ifpr.vercel.app
 
 ### Parte 1 — Setup Inicial (30 min)
 [Clique aqui](./setup-inicial/README.md)
