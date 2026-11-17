@@ -92,8 +92,8 @@ Depois (ou junto) das atividades da Parte 2, um mergulho no Azure DevOps como fe
 |------|--------|
 | Renan Oliveira | [@renanolv](https://github.com/renanolv7) |
 | Marcelo | [@marcelo](https://github.com/marcelo) |
-| Michely | [@michely](https://github.com/michely) |
-| Miguel | [@miguel](https://github.com/miguel) |
+| Michely | [@michely](https://github.com/mimimorena) |
+| Miguel | [@miguel](https://github.com/mig-gerhardt)) |
 | Ciro Guilherme Nass (monitor de Engenharia de Software I) | [@CiroGN](https://github.com/CiroGN) |
 
 ### Suporte
